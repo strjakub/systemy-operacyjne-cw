@@ -1,0 +1,60 @@
+===============================================================
+!! Tekst poniżej nie jest zapisywany do pliku przez program, !!
+!! jest on ręcznie przeklejonym efektem 'make run'.          !!
+!! Uzyskano oczekiwane efekty.                               !!
+===============================================================
+
+./fork ignore
+
+-- IGNORE option --
+	-- main start --
+	-- main end --
+	-- fork start --
+	-- fork end --
+
+./fork handler
+
+-- HANDLE option --
+	-- main start --
+	Handler works:	10
+	-- main end --
+	-- fork start --
+	Handler works:	10
+	-- fork end --
+
+./fork pending
+
+-- MASK/PENDING option --
+	-- main start --
+	Signal 10 is pending
+	-- main end --
+	-- fork start --
+	Signal 10 is not pending
+	-- fork end --
+
+./exec ignore
+
+-- IGNORE option --
+	-- main start --
+	-- exec start --
+	-- exec end --
+	-- main end --
+
+./exec handler
+
+-- HANDLE option --
+	-- main start --
+	Handler works:	10
+	-- exec start --
+	-- main end --
+
+./exec pending
+
+-- MASK/PENDING option --
+	-- main start --
+	Signal 10 is pending
+	-- exec start --
+	Signal 10 is not pending
+	-- exec end --
+	-- main end --
+
